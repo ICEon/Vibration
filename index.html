@@ -17,7 +17,7 @@
     //-------------------------------------------------------------------------
 
     var beep = function(){
-        navigator.notification.beep(3);
+        navigator.notification.beep(1);
     };
 
     var vibrate = function(){
@@ -100,23 +100,23 @@
 </script>
 
   </head>
-  <body onload="init();" id="stage" class="theme">
+  <body onLoad="init();" id="stage" class="theme">
   
     <h1>Notifications and Dialogs</h1>
     <div id="info">
     </div>
     
     <h2>Action</h2>
-    <div class="btn large" onclick="beep();">Beep</div>
-    <div class="btn large" onclick="vibrate();">Vibrate</div>
-    <div class="btn large" onclick="alertDialog('You pressed alert.', 'Alert Dialog', 'Continue');">Alert Dialog</div>
-    <div class="btn large" onclick="confirmDialogA('You pressed confirm.', 'Confirm Dialog', 'Yes,No,Maybe');">Confirm Dialog - Deprecated</div>
-    <div class="btn large" onclick="confirmDialogB('You pressed confirm.', 'Confirm Dialog', ['Yes', 'No', 'Maybe, Not Sure']);">Confirm Dialog</div>
-    <div class="btn large" onclick="promptDialog('You pressed prompt.', 'Prompt Dialog', ['Yes', 'No', 'Maybe, Not Sure']);">Prompt Dialog</div>
+    <div class="btn large" onClick="beep();">Beep</div>
+    <div class="btn large" onClick="vibrate();">Vibrate</div>
+    <div class="btn large" onClick="alertDialog('You pressed alert.', 'Alert Dialog', 'Continue');">Alert Dialog</div>
+    <div class="btn large" onClick="confirmDialogA('You pressed confirm.', 'Confirm Dialog', 'Yes,No,Maybe');">Confirm Dialog - Deprecated</div>
+    <div class="btn large" onClick="confirmDialogB('You pressed confirm.', 'Confirm Dialog', ['Yes', 'No', 'Maybe, Not Sure']);">Confirm Dialog</div>
+    <div class="btn large" onClick="promptDialog('You pressed prompt.', 'Prompt Dialog', ['Yes', 'No', 'Maybe, Not Sure']);">Prompt Dialog</div>
     
-    <div class="btn large" onclick="alert('You pressed alert.');">Built-in Alert Dialog</div>
-    <div class="btn large" onclick="confirm('You selected confirm');">Built-in Confirm Dialog</div>
-    <div class="btn large" onclick="prompt('This is a prompt.', 'Default value');">Built-in Prompt Dialog</div>
-    <h2> </h2><div class="backBtn" onclick="backHome();">Back</div>
+    <div class="btn large" onClick="alert('You pressed alert.');">Built-in Alert Dialog</div>
+    <div class="btn large" onClick="confirm('You selected confirm');">Built-in Confirm Dialog</div>
+    <div class="btn large" onClick="prompt('This is a prompt.', 'Default value');">Built-in Prompt Dialog</div>
+    <h2> </h2><div class="backBtn" onClick="backHome();">Back</div>
   </body>
 </html>    
