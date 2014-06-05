@@ -4,9 +4,10 @@
     <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,maximum-scale=1.0,initial-scale=1.0" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"> <!-- ISO-8859-1 -->
     <title>Cordova Mobile Spec</title>
+
     <link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8">
     <script type="text/javascript" charset="utf-8" src="cordova-incl.js"></script>      
-
+<script type="text/javascript" charset="utf-8" src="PGLowLatencyAudio.js"></script>
       
 <script type="text/javascript" charset="utf-8">
 
@@ -97,6 +98,25 @@
         },1000);
     }
 
+function overlap()
+                {
+                    setTimeout( function() {PGLowLatencyAudio.play('cymbal');}, 300 );
+                    setTimeout( function() {PGLowLatencyAudio.play('drum');}, 600 );
+                    setTimeout( function() {PGLowLatencyAudio.play('cymbal');}, 900 );
+                    setTimeout( function() {PGLowLatencyAudio.play('drum');}, 900 );
+                    setTimeout( function() {PGLowLatencyAudio.play('drum');}, 950 );
+                    setTimeout( function() {PGLowLatencyAudio.play('drum');}, 2000 );
+                    setTimeout( function() {PGLowLatencyAudio.play('cymbal');}, 2000 );
+                }
+                
+                function successHandler (result) {
+                    alert( result );
+                }
+                
+                function errorHandler (error) {
+                    alert( error );
+                }
+
 </script>
 
   </head>
@@ -118,5 +138,22 @@
     <div class="btn large" onClick="confirm('You selected confirm');">Built-in Confirm Dialog</div>
     <div class="btn large" onClick="prompt('This is a prompt.', 'Default value');">Built-in Prompt Dialog</div>
     <h2> </h2><div class="backBtn" onClick="backHome();">Back</div>
+    
+    <ul data-role="listview">
+            <li><a href="javascript:PGLowLatencyAudio.preloadAudio('cymbal', 'assets/cymbal.mp3', 3, successHandler, errorHandler);">preload cymbal</a></li>
+            <li><a href="javascript:PGLowLatencyAudio.preloadFX('drum', 'assets/drum.mp3', successHandler, errorHandler);">preload drum</a></li>
+            <li><a href="javascript:PGLowLatencyAudio.play('cymbal', successHandler, errorHandler);">play cymbal</a></li>
+            <li><a href="javascript:PGLowLatencyAudio.play('drum', successHandler, errorHandler);">play drum</a></li>
+            <li><a href="javascript:PGLowLatencyAudio.unload('cymbal', successHandler, errorHandler);">unload cymbal</a></li>
+            <li><a href="javascript:PGLowLatencyAudio.unload('drum', successHandler, errorHandler);">unload drum</a></li>
+            <li><a href="javascript:overlap();">overlap</a></li>
+            <li><a href="javascript:PGLowLatencyAudio.loop('cymbal', successHandler, errorHandler);">loop</a></li>
+            <li><a href="javascript:PGLowLatencyAudio.stop('cymbal', successHandler, errorHandler);">stop cymbal</a></li>
+        </ul>
+        <ul data-role="listview">
+            <li ><a href="javascript:PGLowLatencyAudio.preloadAudio('cymbal123', 'assets/cymbal123.mp3', 3, successHandler, errorHandler);">error - missing Audio asset</a></li>
+            <li><a href="javascript:PGLowLatencyAudio.preloadFX('drum123', 'assets/drum123.mp3', successHandler, errorHandler);">error - missing Fx asset</a></li>
+        </ul>
+    
   </body>
 </html>    
